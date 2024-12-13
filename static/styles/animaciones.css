@@ -1,0 +1,38 @@
+
+#logo {
+    animation: movimiento 3s infinite;
+    position: relative;
+}
+
+@keyframes movimiento {
+    0% {
+        transform: translateY(0);
+    }
+
+    /* Posición inicial */
+    50% {
+        transform: translateY(-20px);
+    }
+
+    /* Se eleva */
+    100% {
+        transform: translateY(0);
+    }
+
+    /* Vuelve a la posición inicial */
+}
+
+.fan-icon {
+    font-size: 100px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

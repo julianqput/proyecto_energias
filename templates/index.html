@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{{url_for('static', filename='assets/favicon.ico')}}" type="image/x-icon" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:400,700" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:400,700,400italic,700italic"
+        type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/styles.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/mi-estilos.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/animaciones.css')}}">
+    <title>Talento Tech</title>
+</head>
+
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg bg-nav text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">Energia Renovable</a>
+            <button class="navbar-toggler text-uppercase font-weight-bold bg-botones text-white rounded" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#estimador">Estimador de Energia
+                            Renovable</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#cargar">Informacion Historica</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead bg-fd2 text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            <img src="{{url_for('static', filename='assets/img/logo.png')}}" class="d-block mx-auto img-fluid"
+                alt="Logo" style="height: 300px; object-fit: cover" id="logo" />
+            <h1 class="masthead-heading text-uppercase mb-0 letra">
+                <span class="auto-type"></span>
+            </h1>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon fan-icon"><i class="fas fa-fan"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <p class="masthead-subheading font-weight-light mb-5 letra3">
+                El futuro brillante de nuestro planeta comienza con la energía
+                renovable, una fuente inagotable de esperanza que ilumina el camino
+                hacia un mundo más limpio y sostenible.
+            </p>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon fan-icon"><i class="fas fa-fan"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+        </div>
+    </header>
+    <section class="page-section bg-fd1 letra2 mb-0" id="energia">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase letra2">Tipos de Energía Renovable</h2>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon">
+                    <i id="energy-icon" class="fas fa-globe"></i>
+                </div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div id="energyCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-icon="fas fa-sun">
+                        <div class="card text-center mx-auto" style="max-width: 400px;">
+                            <img src="{{url_for('static', filename='assets/img/bubls-drawn-solar-panel.jpg')}}"
+                                class="card-img-top" alt="Energía Solar" style="height: 300px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title">Energía Solar</h5>
+                                <p class="card-text">La energía solar es una fuente limpia, renovable e inagotable que aprovecha la luz del sol para generar electricidad sin emisiones contaminantes. Es accesible, sostenible y clave para reducir la dependencia de los combustibles fósiles, contribuyendo a un futuro más verde y a la lucha contra el cambio climático.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-icon="fas fa-wind">
+                        <div class="card text-center mx-auto" style="max-width: 400px;">
+                            <img src="{{url_for('static', filename='assets/img/wind-fans.jpg')}}" class="card-img-top"
+                                alt="Energía Eólica" style="height: 300px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title">Energía Eólica</h5>
+                                <p class="card-text">La energía eólica utiliza la fuerza del viento para mover turbinas y generar electricidad de forma sostenible. Es una fuente limpia, renovable e inagotable, que no produce emisiones contaminantes y ayuda a reducir la dependencia de los combustibles fósiles, contribuyendo a un futuro más ecológico.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-icon="fas fa-water">
+                        <div class="card text-center mx-auto" style="max-width: 400px;">
+                            <img src="{{url_for('static', filename='assets/img/futuristic-representation-water-structure.jpg')}}"
+                                class="card-img-top" alt="Energía Hidráulica" style="height: 300px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title">Energía Hidráulica</h5>
+                                <p class="card-text">La energía hidroeléctrica genera electricidad aprovechando la fuerza del agua en movimiento. Es una fuente limpia, renovable e inagotable, que contribuye a la producción de energía sostenible sin generar emisiones contaminantes, ayudando a reducir el impacto ambiental y la dependencia de los combustibles fósiles.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#energyCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#energyCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="page-section dashboard bg-fd2" id="dashboard">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+                Dashboard
+            </h2>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon">
+                    <i class="fas fa-solar-panel"></i>
+                </div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-6 mb-5">
+                    <div class="dashboard-item mx-auto">
+                        <img src="data: image/png;base64, {{ graph_url }}" alt="Grafico de Barras" width="100%"
+                            height="100%" />
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 mb-5">
+                    <div class="dashboard-item mx-auto">
+                        <img src="data: image/png;base64, {{ graph_url2 }}" alt="Grafico de Barras" width="100%"
+                            height="100%" />
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 mb-5">
+                    <div class="dashboard-item mx-auto">
+                        <img src="data: image/png;base64, {{ graph_url3 }}" alt="Grafico de Barras" width="100%"
+                            height="100%" />
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 mb-5">
+                    <div class="dashboard-item mx-auto">
+                        <img src="data: image/png;base64, {{ graph_url4 }}" alt="Grafico de Barras" width="100%"
+                            height="100%" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-section bg-fd1 letra2 mb-0" id="estimador">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase letra2">
+                Estimador de energía renovable en el consumo eléctrico
+            </h2>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <form method="POST">
+                <div class="row">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-xl-7">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="consumo_total" name="consumo_total" type="text"
+                                    required />
+                                <label for="consumo_total">Consumo Total (kwh)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-xl-7 mb-3">
+                        {% if porcentaje_renovable is not none %}
+                        <div class="resultado">
+                            <h4 class="badge text-bg-success">
+                                    <i class="fas fa-solar-panel"></i>El porcentaje de energia renovable en tu consumo:
+                                    {{porcentaje_renovable | round(2)}} % </h4>
+                        </div>
+                        {% elif error %}
+                        <div class="error">
+                            <h4 class="badge text-bg-danger">{{error}}</h4>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn btn-xl border-dark text-dark" id="boton">
+                        <i class="fas fa-plug me-2"></i> Calcular
+                    </button>
+                </div>
+            </form>
+            <br />
+            <div class="text-center mb-5">
+                <img src="{{url_for('static', filename='assets/img/formula.png')}}" width="50%" height="50%" />
+            </div>
+        </div>
+    </section>
+    <section class="page-section bg-fd2" id="cargar">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase mb-0 letra">
+                Información Sobre Energia Renovable de Sur America
+            </h2>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon">
+                    <i class="fas fa-plug-circle-plus"></i>
+                </div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-xl-7">
+                    <table id="tabla_datos" class="display">
+                        <thead>
+                            <tr>
+                                <th>Entidad</th>
+                                <th>Código</th>
+                                <th>Año</th>
+                                <th>Renovables (% energia primaria equivalente)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for fila in data %}
+                            <tr>
+                                <td>{{ fila[0] }}</td>
+                                <td>{{ fila[1] }}</td>
+                                <td>{{ fila[2] }}</td>
+                                <td>{{ fila[3] }}</td>
+                            </tr>
+                            {% endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-section bg-fd1" id="contacto">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contacto</h2>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 shadow border-0">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-uppercase">Juan Camilo Hernandez Ibarguen</h5>
+                            <p class="card-text">Estudiante de Ingeniería De Software 6to Semestre</p>
+                            <p class="card-text">Universidad Ciaf</p>
+                            <a href="https://github.com/CamiloHI96" target="_blank" class="btn btn-secondary">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 shadow border-0">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-uppercase">Lina Marcela Sepúlveda Henao</h5>
+                            <p class="card-text">Estudiante de Ingeniería De Software 5to Semestre</p>
+                            <p class="card-text">Universidad Ciaf</p><br>
+                            <a href="https://github.com/LinaSepulveda30" target="_blank" class="btn btn-secondary">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 shadow border-0">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-uppercase">Erlin Julian Quesada Pinzon</h5>
+                            <p class="card-text">Estudiante de Ingeniería Electronica 5to Semestre</p>
+                            <p class="card-text">Universidad UTP</p><br>
+                            <a href="https://github.com/julianqput" target="_blank" class="btn btn-secondary">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-footer text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <img src="{{url_for('static', filename='assets/img/logo_ciaf.webp')}}"
+                        class="d-block mx-auto img-fluid" alt="Logo-Ciaf" style="height: 100px; object-fit: cover" />
+                </div>
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="divider-custom">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon fan-icon"><i class="fas fa-fan"></i></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <img src="{{url_for('static', filename='assets/img/logo_talentotech.webp')}}"
+                        class="d-block mx-auto img-fluid" alt="Logo-TIC" style="height: 100px; object-fit: cover" />
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}?v=1.0">
+    <script src="{{ url_for('static', filename='js/scripts.js') }}?v=1.0" defer></script>
+    <script src="{{ url_for('static', filename='js/cambiarIcono.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/titulo.js') }}?v=1.0" defer></script>
+    <script src="{{ url_for('static', filename='js/tabla.js') }}?v=1.0" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+</body>
+
+</html>

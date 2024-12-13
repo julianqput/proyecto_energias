@@ -1,0 +1,85 @@
+.bg-nav{
+    background-color: #4B4B4B;
+}
+
+.bg-fd1{
+    background-color: #F5F5F5;
+}
+
+.bg-fd2{
+    background-color: #D3D3D3;
+}
+
+.letra{
+    color: black;
+}
+
+.letra2{
+    color: black;
+    text-decoration: #2F2F2F; 
+}
+
+.letra3{
+    color: #2F2F2F;
+}
+
+.letra4{
+    color: white;
+    text-decoration: #2F2F2F;
+}
+
+.lineas i{
+    color: black;
+    background-color: black;
+}
+
+#boton{
+    background-color: transparent;
+}
+
+.bg-footer{
+    background-color: #4B4B4B;
+    padding: 3% 0%;
+}
+
+/* Estilo base para el texto */
+.auto-type {
+    display: inline-block;
+    white-space: nowrap;    /* Evita el salto de línea */
+    overflow: hidden;       /* Oculta texto que excede el ancho */
+    text-overflow: ellipsis; /* Añade "..." si el texto es demasiado largo */
+    font-size: 3rem;        /* Tamaño base del texto */
+}
+
+/* Responsividad: Tamaño de texto en pantallas pequeñas */
+@media (max-width: 768px) {
+    .masthead-heading {
+        font-size: 2.5rem; /* Ajusta el tamaño del h1 para móviles */
+    }
+    .auto-type {
+        font-size: 1.8rem; /* Ajusta el tamaño del texto animado */
+    }
+}
+
+/* Responsividad: Tamaño de texto en pantallas muy pequeñas */
+@media (max-width: 576px) {
+    .masthead-heading {
+        font-size: 2rem; /* Reduce el tamaño del h1 aún más */
+    }
+    .auto-type {
+        font-size: 1.5rem; /* Texto animado más pequeño */
+    }
+}
+
+/* Para los separadores */
+.divider-custom-line.solar {
+    background-color: #FFD700; /* Amarillo para la energía solar */
+}
+
+.divider-custom-line.eolica {
+    background-color: #32CD32; /* Verde para la energía eólica */
+}
+
+.divider-custom-line.hidraulica {
+    background-color: #1E90FF; /* Azul para la energía hidráulica */
+}
